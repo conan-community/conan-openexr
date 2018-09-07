@@ -14,7 +14,7 @@ class OpenEXRConan(ConanFile):
     generators = "cmake"
     exports = "FindOpenEXR.cmake"
 
-    requires = "ilmbase/{version}@jgsogo/stable".format(version=version)
+    requires = "ilmbase/{version}@jgsogo/testing".format(version=version)
 
     def config_options(self):
         if self.settings.os == "Windows":
