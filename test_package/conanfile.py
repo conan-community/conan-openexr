@@ -1,5 +1,5 @@
 from conans.model.conan_file import ConanFile
-from conans import CMake
+from conans import CMake, tools
 import os
 
 
@@ -17,4 +17,5 @@ class DefaultNameConan(ConanFile):
         self.copy(pattern="*.dylib", dst="bin", src="lib")
 
     def test(self):
-        self.run("cd bin && .%stestPackage" % os.sep)
+        with tools.chdir('bin'):
+            self.run(".%stestPackage" % os.sep, run_environment=True)
