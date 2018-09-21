@@ -5,7 +5,8 @@ import os
 
 class OpenEXRConan(ConanFile):
     name = "openexr"
-    description = "OpenEXR is a high dynamic-range (HDR) image file format developed by Industrial Light & Magic for use in computer imaging applications."
+    description = "OpenEXR is a high dynamic-range (HDR) image file format developed by Industrial Light & " \
+                  "Magic for use in computer imaging applications."
     version = "2.3.0"
     license = "BSD"
     url = "https://github.com/jgsogo/conan-openexr.git"
@@ -63,8 +64,7 @@ conan_basic_setup()
 
     def package_info(self):
         parsed_version = self.version.split('.')
-        version_suffix = "-%s_%s" % (
-        parsed_version[0], parsed_version[1]) if self.options.namespace_versioning else ""
+        version_suffix = "-%s_%s" % (parsed_version[0], parsed_version[1]) if self.options.namespace_versioning else ""
         if not self.options.shared:
             version_suffix += "_s"
         if self.settings.build_type == 'Debug':
