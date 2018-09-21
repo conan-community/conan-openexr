@@ -1,5 +1,4 @@
 from conans import ConanFile, CMake, tools
-from conans.errors import ConanException
 import os
 
 
@@ -28,9 +27,6 @@ class OpenEXRConan(ConanFile):
     def configure(self):
         if "fPIC" in self.options.fields and self.options.shared:
             self.options.fPIC = True
-
-        if self.settings.compiler == 'gcc' and self.settings.compiler.libcxx == 'libstdc++':
-            raise ConanException("Compile with stdlib=libstdc++11 using settings.compiler.libcxx")
 
     def source(self):
         url = "https://github.com/openexr/openexr/archive/v{version}.tar.gz"
