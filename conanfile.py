@@ -63,7 +63,7 @@ conan_basic_setup()
         version_suffix = "-%s_%s" % (parsed_version[0], parsed_version[1]) if self.options.namespace_versioning else ""
         if not self.options.shared:
             version_suffix += "_s"
-        if self.settings.build_type == 'Debug':
+        if self.settings.compiler == 'Visual Studio' and self.settings.build_type == 'Debug':
             version_suffix += "_d"
 
         self.cpp_info.includedirs = [os.path.join('include', 'OpenEXR'), ]
