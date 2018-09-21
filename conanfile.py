@@ -35,7 +35,7 @@ class OpenEXRConan(ConanFile):
                               'project(OpenEXR VERSION ${OPENEXR_VERSION})',
                               """project(OpenEXR VERSION ${OPENEXR_VERSION})
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+conan_basic_setup(KEEP_RPATHS)
 """)
 
     def build(self):
