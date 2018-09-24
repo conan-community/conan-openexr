@@ -39,7 +39,8 @@ conan_basic_setup(KEEP_RPATHS)
 """)
 
     def build(self):
-        cmake = CMake(self)
+        # parallel builds are disabled due to the random issue: 'toFloat.h': No such file or directory
+        cmake = CMake(self, parallel=False)
         cmake.definitions["OPENEXR_BUILD_PYTHON_LIBS"] = False
         cmake.definitions["OPENEXR_BUILD_SHARED"] = self.options.shared
         cmake.definitions["OPENEXR_BUILD_STATIC"] = not bool(self.options.shared)
