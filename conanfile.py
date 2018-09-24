@@ -15,8 +15,6 @@ class OpenEXRConan(ConanFile):
     generators = "cmake"
     exports = "FindOpenEXR.cmake"
 
-    # requires = "ilmbase/{version}@jgsogo/testing".format(version=version)
-
     def config_options(self):
         if self.settings.os == "Windows":
             self.options.remove("fPIC")
@@ -47,9 +45,6 @@ conan_basic_setup(KEEP_RPATHS)
         cmake.definitions["OPENEXR_NAMESPACE_VERSIONING"] = self.options.namespace_versioning
         cmake.definitions["OPENEXR_ENABLE_TESTS"] = False
 
-        # cmake.definitions["OPENEXR_BUILD_ILMBASE"] = False
-        # cmake.definitions["ILMBASE_PACKAGE_PREFIX"] = self.deps_cpp_info["ilmbase"].rootpath
-
         cmake.configure(source_dir='openexr-{}'.format(self.version))
         cmake.build()
 
@@ -77,5 +72,5 @@ conan_basic_setup(KEEP_RPATHS)
         if self.options.shared and self.settings.os == "Windows":
             self.cpp_info.defines.append("OPENEXR_DLL")
 
-        if not self.settings.os == "Windows":
+        if self.settings.os != "Windows":
             self.cpp_info.cppflags = ["-pthread"]
