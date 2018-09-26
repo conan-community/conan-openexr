@@ -34,6 +34,9 @@ class OpenEXRConan(ConanFile):
                               """project(OpenEXR VERSION ${OPENEXR_VERSION})
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(KEEP_RPATHS)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 """)
 
     def build(self):
@@ -44,6 +47,7 @@ conan_basic_setup(KEEP_RPATHS)
         cmake.definitions["OPENEXR_BUILD_STATIC"] = not bool(self.options.shared)
         cmake.definitions["OPENEXR_NAMESPACE_VERSIONING"] = self.options.namespace_versioning
         cmake.definitions["OPENEXR_ENABLE_TESTS"] = False
+        cmake.definitions["OPENEXR_FORCE_CXX03"] = True
 
         cmake.configure(source_dir='openexr-{}'.format(self.version))
         cmake.build()
