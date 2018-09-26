@@ -48,6 +48,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
         cmake.definitions["OPENEXR_NAMESPACE_VERSIONING"] = self.options.namespace_versioning
         cmake.definitions["OPENEXR_ENABLE_TESTS"] = False
         cmake.definitions["OPENEXR_FORCE_CXX03"] = True
+        cmake.definitions["OPENEXR_BUILD_UTILS"] = False
 
         cmake.configure(source_dir='openexr-{}'.format(self.version))
         cmake.build()
