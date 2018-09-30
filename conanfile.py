@@ -41,7 +41,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
     def build(self):
         # parallel builds are disabled due to the random issue: 'toFloat.h': No such file or directory
-        cmake = CMake(self, parallel=False)
+        cmake = CMake(self, parallel=self.settings.os != 'Windows')
         cmake.definitions["OPENEXR_BUILD_PYTHON_LIBS"] = False
         cmake.definitions["OPENEXR_BUILD_SHARED"] = self.options.shared
         cmake.definitions["OPENEXR_BUILD_STATIC"] = not bool(self.options.shared)
