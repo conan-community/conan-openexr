@@ -14,6 +14,7 @@ class OpenEXRConan(ConanFile):
     default_options = "shared=False", "namespace_versioning=True", "fPIC=True"
     generators = "cmake"
     exports = "FindOpenEXR.cmake"
+    exports_sources = ["IlmImf__ImfSystemSpecific.cpp.patch"]
 
     def config_options(self):
         if self.settings.os == "Windows":
@@ -38,6 +39,8 @@ conan_basic_setup(KEEP_RPATHS)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 """)
+        tools.patch(patch_file="IlmImf__ImfSystemSpecific.cpp.patch",
+                    base_path=os.path.join('openexr-{}'.format(self.version), 'OpenEXR'))
 
     def build(self):
         # parallel builds are disabled due to the random issue: 'toFloat.h': No such file or directory
