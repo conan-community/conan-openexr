@@ -36,6 +36,8 @@ class OpenEXRConan(ConanFile):
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(KEEP_RPATHS)
 
+set(OPENEXR_PACKAGE_PREFIX ${CMAKE_INSTALL_PREFIX})
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 """)
