@@ -17,5 +17,6 @@ class DefaultNameConan(ConanFile):
         self.copy(pattern="*.dylib", dst="bin", src="lib")
 
     def test(self):
+        imgfile = os.path.join(self.source_folder, 'bonita.exr')
         with tools.chdir('bin'):
-            self.run(".%stestPackage" % os.sep, run_environment=True)
+            self.run(".%stestPackage %s" % (os.sep, imgfile), run_environment=True)
