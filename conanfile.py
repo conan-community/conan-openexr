@@ -13,7 +13,6 @@ class OpenEXRConan(ConanFile):
     options = {"shared": [True, False], "namespace_versioning": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "namespace_versioning=True", "fPIC=True"
     generators = "cmake"
-    exports = "FindOpenEXR.cmake"
     exports_sources = ["IlmImf__ImfSystemSpecific.cpp.patch"]
 
     def config_options(self):
@@ -63,7 +62,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
     def package(self):
         cmake = CMake(self)
         cmake.install()
-        self.copy("FindOpenEXR.cmake", src=".", dst=".")
         self.copy("license*", dst="licenses", src="ilmbase-%s" % self.version, ignore_case=True, keep_path=False)
 
     def package_info(self):
