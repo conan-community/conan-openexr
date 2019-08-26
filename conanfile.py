@@ -77,7 +77,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
                               'IlmThread' + version_suffix,
                               'Iex' + version_suffix,
                               'Half' + version_suffix]
-
+        
+        self.cpp_info.includedirs = [os.path.join('include', 'OpenEXR'), 'include']
         if self.options.shared and self.settings.os == "Windows":
             self.cpp_info.defines.append("OPENEXR_DLL")
 
