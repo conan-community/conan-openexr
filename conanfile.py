@@ -72,13 +72,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
         if self.settings.compiler == 'Visual Studio' and self.settings.build_type == 'Debug':
             version_suffix += "_d"
 
-        self.cpp_info.includedirs = [os.path.join('include', 'OpenEXR'), ]
         self.cpp_info.libs = ['IlmImf' + version_suffix,
                               'IlmImfUtil' + version_suffix,
                               'IlmThread' + version_suffix,
                               'Iex' + version_suffix,
                               'Half' + version_suffix]
-
+        
+        self.cpp_info.includedirs = [os.path.join('include', 'OpenEXR'), 'include']
         if self.options.shared and self.settings.os == "Windows":
             self.cpp_info.defines.append("OPENEXR_DLL")
 
