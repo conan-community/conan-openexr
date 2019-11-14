@@ -2,6 +2,16 @@
 [![Build Status Travis](https://travis-ci.org/conan-community/conan-openexr.svg)](https://travis-ci.org/conan-community/conan-openexr)
 [![Build Status AppVeyor](https://ci.appveyor.com/api/projects/status/github/conan-community/conan-openexr?svg=true)](https://ci.appveyor.com/project/ConanCIintegration/conan-openexr)
 
+## Package Deprecation Notice
+
+The Conan Center Index has taken ownership of the public Conan package for this library, which can be found at the following links:
+
+https://github.com/conan-io/conan-center-index
+
+Bincrafters will keep this version of the package on Github and Bintray, however it will no longer be maintained or supported.
+Users are advised to update their projects to use the official Conan package maintained by the library author immediately.
+
+
 ## Conan package recipe for *openexr*
 
 OpenEXR is a high dynamic-range (HDR) image file format developed by Industrial Light & Magic for use in computer imaging applications.
