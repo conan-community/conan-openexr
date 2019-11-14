@@ -8,7 +8,7 @@ The Conan Center Index has taken ownership of the public Conan package for this 
 
 https://github.com/conan-io/conan-center-index
 
-Bincrafters will keep this version of the package on Github and Bintray, however it will no longer be maintained or supported.
+Conan Community will keep this version of the package on Github and Bintray, however it will no longer be maintained or supported.
 Users are advised to update their projects to use the official Conan package maintained by the library author immediately.
 
 

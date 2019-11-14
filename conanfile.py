@@ -8,10 +8,10 @@ class OpenEXRConan(ConanFile):
                   "Magic for use in computer imaging applications."
     version = "2.3.0"
     license = "BSD"
-    url = "https://github.com/jgsogo/conan-openexr.git"
+    url = "https://github.com/conan-community/conan-openexr.git"
 
     alias = "openexr/2.3.0"
 
     def configure(self):
-        self.output.warn("[DEPRECATED] Package openexr/bincrafters is being deprecated. Change yours to require openexr/2.3.0@ instead")
+        self.output.warn("[DEPRECATED] Package openexr/conan is being deprecated. Change yours to require openexr/2.3.0@ instead")
 
